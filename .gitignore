@@ -6,3 +6,5 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 nohup.out
+saved/smoke_test/
+saved/test_50epoch/
