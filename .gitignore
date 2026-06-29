@@ -1,0 +1,8 @@
+data/
+saved/*/weights/
+src/runs/
+*.cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+nohup.out

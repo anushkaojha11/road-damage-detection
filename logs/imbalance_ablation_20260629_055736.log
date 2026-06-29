@@ -1,0 +1,16 @@
+05:57:36 | === Label Imbalance Ablation ===
+05:57:36 | Starting run: imbalance_default
+05:57:36 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False
+07:29:50 | Results for imbalance_default:
+07:29:50 |   mAP@50=0.5931 | mAP@50-95=0.3208
+07:29:50 |   Per-class AP50: D00=0.5121 D10=0.4833 D20=0.6355 D40=0.7416
+07:29:50 | Weighted=False: mAP50=0.5931
+07:29:50 | Starting run: imbalance_weighted
+07:29:50 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=True
+09:11:26 | Results for imbalance_weighted:
+09:11:26 |   mAP@50=0.5999 | mAP@50-95=0.3166
+09:11:26 |   Per-class AP50: D00=0.5162 D10=0.4847 D20=0.6448 D40=0.7536
+09:11:26 | Weighted=True: mAP50=0.5999
+09:11:26 | === Imbalance Ablation Summary ===
+09:11:26 |   imbalance_default: mAP50=0.5931 | mAP50-95=0.3208
+09:11:26 |   imbalance_weighted: mAP50=0.5999 | mAP50-95=0.3166

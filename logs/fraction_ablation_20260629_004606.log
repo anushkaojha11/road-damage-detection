@@ -1,0 +1,15 @@
+00:46:06 | === Label Fraction Ablation ===
+00:46:15 | Starting run: fraction_10pct
+00:46:15 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False
+01:04:38 | Results for fraction_10pct:
+01:04:38 |   mAP@50=0.3918 | mAP@50-95=0.1786
+01:04:38 |   Per-class AP50: D00=0.3407 D10=0.2683 D20=0.4562 D40=0.5021
+01:04:38 | Fraction 10% done: mAP50=0.3918
+01:04:53 | Starting run: fraction_25pct
+01:04:53 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False
+01:37:48 | Results for fraction_25pct:
+01:37:48 |   mAP@50=0.4745 | mAP@50-95=0.2373
+01:37:48 |   Per-class AP50: D00=0.4089 D10=0.3346 D20=0.5283 D40=0.6263
+01:37:48 | Fraction 25% done: mAP50=0.4745
+01:38:23 | Starting run: fraction_50pct
+01:38:23 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False

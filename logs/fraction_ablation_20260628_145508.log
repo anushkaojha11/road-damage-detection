@@ -1,0 +1,3 @@
+14:55:08 | === Label Fraction Ablation ===
+14:55:50 | Starting run: fraction_10pct
+14:55:50 |   weights=yolov8s.pt | epochs=1 | imgsz=608 | weighted=False
