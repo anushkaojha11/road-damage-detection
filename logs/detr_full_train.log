@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] You passed `num_labels=4` which is incompatible to the `id2label` map of length `91`.
+Loading weights:   0%|                                                                                                            | 0/530 [00:00<?, ?it/s]Loading weights:  78%|██████████████████████████████████████████████████████████████████████████▍                     | 411/530 [00:00<00:00, 4108.02it/s]Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 530/530 [00:00<00:00, 4261.89it/s]
+[transformers] [1mDetrForObjectDetection LOAD REPORT[0m from: facebook/detr-resnet-50
+Key                                                            | Status     |                                                                                        
+---------------------------------------------------------------+------------+----------------------------------------------------------------------------------------
+model.backbone.model.layer1.0.downsample.1.num_batches_tracked | UNEXPECTED |                                                                                        
+model.backbone.model.layer2.0.downsample.1.num_batches_tracked | UNEXPECTED |                                                                                        
+model.backbone.model.layer4.0.downsample.1.num_batches_tracked | UNEXPECTED |                                                                                        
+model.backbone.model.layer3.0.downsample.1.num_batches_tracked | UNEXPECTED |                                                                                        
+class_labels_classifier.weight                                 | MISMATCH   | Reinit due to size mismatch - ckpt: torch.Size([92, 256]) vs model:torch.Size([5, 256])
+class_labels_classifier.bias                                   | MISMATCH   | Reinit due to size mismatch - ckpt: torch.Size([92]) vs model:torch.Size([5])          
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISMATCH:	ckpt weights were loaded, but they did not match the original empty weight shapes.
+loading annotations into memory...
+Done (t=0.14s)
+creating index...
+index created!
+Starting training: 25194 images, 20 epochs
+Epoch 1/20 | Step 0/6299 | Loss: 7.2115
+Epoch 1/20 | Step 1000/6299 | Loss: 0.1227
+Epoch 1/20 | Step 2000/6299 | Loss: 2.1697
+Epoch 1/20 | Step 3000/6299 | Loss: 1.1853
+Epoch 1/20 | Step 4000/6299 | Loss: 2.6560
+Epoch 1/20 | Step 5000/6299 | Loss: 1.4883
+Epoch 1/20 | Step 6000/6299 | Loss: 1.6065
+Epoch 1 done | Avg loss: 1.9510 | Time: 42.8 min
+Writing model shards:   0%|                                                                                                         | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.97s/it]Writing model shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.97s/it]
+Checkpoint saved: epoch_1
+Epoch 2/20 | Step 0/6299 | Loss: 2.0145
+Epoch 2/20 | Step 1000/6299 | Loss: 1.3909
+Epoch 2/20 | Step 2000/6299 | Loss: 1.6085
+Epoch 2/20 | Step 3000/6299 | Loss: 1.2386

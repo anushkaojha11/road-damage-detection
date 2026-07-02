@@ -1,3 +1,16 @@
 09:32:05 | === Anchor Sensitivity Ablation ===
 09:32:05 | Starting run: anchor_coco
 09:32:05 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False
+11:02:48 | Results for anchor_coco:
+11:02:48 |   mAP@50=0.5931 | mAP@50-95=0.3208
+11:02:48 |   Per-class AP50: D00=0.5121 D10=0.4833 D20=0.6355 D40=0.7416
+11:02:48 | CustomAnchors=False: mAP50=0.5931
+11:02:48 | Starting run: anchor_custom
+11:02:48 |   weights=yolov8s.pt | epochs=20 | imgsz=608 | weighted=False
+12:42:29 | Results for anchor_custom:
+12:42:29 |   mAP@50=0.5898 | mAP@50-95=0.3167
+12:42:29 |   Per-class AP50: D00=0.5065 D10=0.4831 D20=0.6367 D40=0.7328
+12:42:29 | CustomAnchors=True: mAP50=0.5898
+12:42:29 | === Anchor Ablation Summary ===
+12:42:29 |   anchor_coco: mAP50=0.5931 | mAP50-95=0.3208
+12:42:29 |   anchor_custom: mAP50=0.5898 | mAP50-95=0.3167

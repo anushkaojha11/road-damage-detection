@@ -172,3 +172,81 @@ plt.close()
 print("Saved: ablation_5_training_curves.png")
 
 print("\nAll 5 plots saved to:", PLOTS)
+
+# ── Plot 6: Anchor Sensitivity ─────────────────────────────────────────────
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+anchor_labels = ["COCO\nAnchors", "Custom\nAnchors"]
+overall_anchor = [0.5931, 0.5898]
+bars = axes[0].bar(anchor_labels, overall_anchor,
+                   color=["#3498DB", "#E74C3C"], width=0.4, alpha=0.85, edgecolor="white")
+for bar, v in zip(bars, overall_anchor):
+    axes[0].text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.002,
+                 f"{v:.3f}", ha="center", fontsize=12, fontweight="bold")
+axes[0].set_ylabel("mAP@50")
+axes[0].set_title("Overall mAP@50")
+axes[0].set_ylim(0.55, 0.65)
+axes[0].grid(True, alpha=0.3, axis='y')
+
+anchor_perclass = {
+    "COCO":   [0.5121, 0.4833, 0.6355, 0.7416],
+    "Custom": [0.5065, 0.4831, 0.6367, 0.7328],
+}
+x = np.arange(len(CLASSES))
+width = 0.35
+for i, (label, col) in enumerate(zip(["COCO", "Custom"], ["#3498DB", "#E74C3C"])):
+    vals = anchor_perclass[label]
+    bars = axes[1].bar(x + (i - 0.5)*width, vals, width,
+                       label=f"{label} Anchors", color=col, alpha=0.85, edgecolor="white")
+    for bar, v in zip(bars, vals):
+        axes[1].text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.005,
+                     f"{v:.3f}", ha="center", fontsize=9)
+axes[1].set_ylabel("AP@50")
+axes[1].set_title("Per-Class AP@50")
+axes[1].set_xticks(x)
+axes[1].set_xticklabels(CLASSES)
+axes[1].legend(framealpha=0.9)
+axes[1].set_ylim(0, 0.9)
+axes[1].grid(True, alpha=0.3, axis='y')
+fig.suptitle("Anchor Sensitivity — COCO Default vs RDD2022 Custom Anchors",
+             fontweight="bold", fontsize=14)
+plt.tight_layout()
+plt.savefig(PLOTS / "ablation_6_anchor.png", dpi=150, bbox_inches="tight")
+plt.close()
+print("Saved: ablation_6_anchor.png")
+
+# ── Plot 7: NMS Threshold Sweep ────────────────────────────────────────────
+fig, ax = plt.subplots(figsize=(8, 5))
+iou_thresholds = [0.3, 0.4, 0.5, 0.6, 0.7]
+map50_nms      = [0.5958, 0.6088, 0.6132, 0.6078, 0.5931]
+map5095_nms    = [0.3064, 0.3128, 0.3186, 0.3218, 0.3208]
+
+ax.plot(iou_thresholds, map50_nms, marker="o", linewidth=2.5, markersize=9,
+        color="#2980B9", markerfacecolor="white", markeredgewidth=2.5, label="mAP@50")
+ax.plot(iou_thresholds, map5095_nms, marker="s", linewidth=2.5, markersize=9,
+        color="#E74C3C", markerfacecolor="white", markeredgewidth=2.5, label="mAP@50-95",
+        linestyle="--")
+
+# annotate peak
+ax.annotate("Peak\nmAP@50=0.613", xy=(0.5, 0.6132),
+            xytext=(0.55, 0.605), fontsize=10, color="#2980B9",
+            arrowprops=dict(arrowstyle="->", color="#2980B9"))
+
+for x, y in zip(iou_thresholds, map50_nms):
+    ax.annotate(f"{y:.3f}", (x, y),
+                textcoords="offset points", xytext=(0, 12),
+                ha="center", fontsize=9, color="#2980B9")
+
+ax.set_xlabel("NMS IoU Threshold")
+ax.set_ylabel("mAP")
+ax.set_title("NMS Threshold Sensitivity Sweep")
+ax.set_xticks(iou_thresholds)
+ax.legend(framealpha=0.9)
+ax.set_ylim(0.28, 0.65)
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig(PLOTS / "ablation_7_nms_sweep.png", dpi=150, bbox_inches="tight")
+plt.close()
+print("Saved: ablation_7_nms_sweep.png")
+
+print("\nAll 7 plots saved to:", PLOTS)
